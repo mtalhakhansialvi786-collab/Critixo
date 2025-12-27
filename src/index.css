@@ -1,0 +1,48 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: 'Inter', sans-serif;
+}
+
+body {
+  background-color: #0f0f0f;
+  color: #ffffff;
+  overflow-x: hidden;
+}
+
+/* Custom Scrollbar */
+::-webkit-scrollbar {
+  width: 8px;
+}
+::-webkit-scrollbar-track {
+  background: #1a1a1a;
+}
+::-webkit-scrollbar-thumb {
+  background: #ff4d4d;
+  border-radius: 10px;
+}
+
+/* Glowing Button Animation */
+.glow-button {
+  transition: 0.3s;
+  position: relative;
+  overflow: hidden;
+}
+.glow-button:hover {
+  box-shadow: 0 0 20px #ff4d4d;
+  transform: translateY(-2px);
+}
+
+/* Load More Button */
+.load-more {
+  display: block;
+  margin: 40px auto;
+  padding: 12px 40px;
+  background: transparent;
+  color: white;
+  border: 2px solid #ff4d4d;
+  border-radius: 30px;
+  cursor: pointer;
+  font-weight: bold;
+}
