@@ -2,11 +2,13 @@ import React, { useState } from 'react';
 import axios from 'axios';
 import { Eye, EyeOff, LogIn, Mail, Lock } from 'lucide-react';
 import { auth, googleProvider, signInWithPopup } from '../firebaseConfig';
+import { useNavigate } from 'react-router-dom'; // navigate import kiya
 
 const Login = () => {
     const [email, setEmail] = useState("");
     const [password, setPassword] = useState("");
     const [showPassword, setShowPassword] = useState(false);
+    const navigate = useNavigate(); // navigate hook setup
 
     // Live Backend URL
     const API_URL = "https://critixo-mik3.vercel.app/api/auth/login";
@@ -19,7 +21,7 @@ const Login = () => {
             localStorage.setItem('userEmail', result.user.email);
             
             alert(`Welcome ${result.user.displayName}!`);
-            window.location.href = "/"; 
+            navigate("/"); // window.location ki jagah navigate use kiya
         } catch (error) {
             console.error("Google Auth Error:", error);
             alert("Google Login Failed! Check internet and Firebase settings.");
@@ -29,7 +31,6 @@ const Login = () => {
     const handleAdminLogin = async (e) => {
         e.preventDefault();
         try {
-            // Localhost ko live API URL se replace kiya
             const res = await axios.post(API_URL, { 
                 email: email.trim(), 
                 password: password 
@@ -39,11 +40,10 @@ const Login = () => {
             localStorage.setItem('userName', 'Admin');
             
             alert("Admin Access Granted!");
-            window.location.href = "/admin";
+            navigate("/admin"); // Yahan 404 se bachne ke liye navigate use kiya
         } catch (err) {
             console.error("Login Error:", err);
-            // Error handling behtar ki taake server response nazar aaye
-            alert(err.response?.data?.message || "Connection failed! Check if backend is running.");
+            alert(err.response?.data?.message || "Server band hai ya credentials ghalat hain!");
         }
     };
 
