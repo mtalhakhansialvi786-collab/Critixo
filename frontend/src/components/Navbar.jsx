@@ -20,7 +20,7 @@ const Navbar = ({ searchTerm, setSearchTerm }) => {
     <nav style={styles.nav}>
       <div style={styles.logo} onClick={() => navigate('/')}>
         <BookOpen size={30} color="#1A73E8" /> {/* Red to Blue */}
-        <span style={{ marginLeft: '10px' }}>CRITIXO</span>
+        <span style={{ marginLeft: '10px' }}>Critixo</span>
       </div>
 
       <div style={styles.searchBar}>
