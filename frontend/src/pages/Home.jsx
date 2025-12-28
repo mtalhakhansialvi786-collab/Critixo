@@ -79,36 +79,52 @@ const Home = ({ searchTerm }) => {
 };
 
 const styles = {
-  container: { padding: '100px 5% 50px 5%', minHeight: '100vh' },
+  container: { 
+    padding: '100px 5% 50px 5%', 
+    minHeight: '100vh', 
+    background: '#f1efe2' // Pure page ka background white/cream
+  },
   hero: { textAlign: 'center', marginBottom: '50px' },
-  heroTitle: { fontSize: '3rem', fontWeight: '800', letterSpacing: '-1px' },
-  heroSub: { color: '#888', marginTop: '10px', fontSize: '1.2rem' },
+  heroTitle: { 
+    fontSize: '3rem', 
+    fontWeight: '800', 
+    letterSpacing: '-1px',
+    color: '#1A73E8' // Hero title blue kar diya
+  },
+  heroSub: { color: '#666', marginTop: '10px', fontSize: '1.2rem' }, // Darker gray for white bg
   grid: { 
     display: 'grid', 
     gridTemplateColumns: 'repeat(auto-fill, minmax(250px, 1fr))', 
     gap: '30px' 
   },
   card: { 
-    background: '#1a1a1a', 
+    background: '#ffffff', // Card background pure white
     borderRadius: '15px', 
     overflow: 'hidden', 
-    border: '1px solid #333',
+    border: '1px solid #ddd', // Light border
     transition: '0.3s'
   },
   imageContainer: { position: 'relative', height: '320px', overflow: 'hidden' },
   image: { width: '100%', height: '100%', objectFit: 'cover', transition: '0.5s' },
   langBadge: { 
     position: 'absolute', top: '10px', left: '10px', 
-    background: 'rgba(255, 77, 77, 0.9)', color: 'white', 
+    background: 'rgba(26, 115, 232, 0.9)', // Red badge blue ho gaya (#1A73E8 ka rgba)
+    color: 'white', 
     padding: '4px 12px', borderRadius: '20px', fontSize: '12px', fontWeight: 'bold' 
   },
   details: { padding: '20px' },
-  bookTitle: { fontSize: '1.1rem', fontWeight: 'bold', marginBottom: '8px' },
+  bookTitle: { fontSize: '1.1rem', fontWeight: 'bold', marginBottom: '8px', color: '#333' },
   rating: { display: 'flex', alignItems: 'center', marginBottom: '10px' },
-  price: { fontSize: '1.3rem', color: '#ff4d4d', fontWeight: 'bold', marginBottom: '15px' },
+  price: { 
+    fontSize: '1.3rem', 
+    color: '#1A73E8', // Price color blue ho gaya
+    fontWeight: 'bold', 
+    marginBottom: '15px' 
+  },
   buyBtn: { 
     width: '100%', padding: '12px', borderRadius: '8px', border: 'none',
-    background: 'linear-gradient(45deg, #25D366, #128C7E)', color: 'white',
+    background: 'linear-gradient(45deg, #1A73E8, #0d47a1)', // Button gradient ko blue theme de di
+    color: 'white',
     fontWeight: 'bold', cursor: 'pointer', display: 'flex', alignItems: 'center', 
     justifyContent: 'center', gap: '10px' 
   }
