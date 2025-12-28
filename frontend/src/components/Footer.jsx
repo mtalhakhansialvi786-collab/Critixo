@@ -1,6 +1,5 @@
 import React from 'react';
 import { Facebook, Twitter, Instagram, Mail, Phone } from 'lucide-react';
-
 const Footer = () => {
   return (
     <footer style={styles.footer}>
@@ -63,5 +62,4 @@ const styles = {
     paddingTop: '20px' 
   }
 };
-
 export default Footer;
