@@ -19,11 +19,6 @@ const Navbar = ({ searchTerm, setSearchTerm }) => {
     <nav style={styles.nav}>
       {/* Logo Section - Yahan main-logo.png add kiya gaya hai */}
       <div style={styles.logoContainer} onClick={() => navigate('/')}>
-        <img 
-          src="/main-logo.png" 
-          alt="Critixo Logo" 
-          style={styles.logoImage} 
-        />
         <span style={styles.logoText}>Citixo</span>
       </div>
 
@@ -87,7 +82,7 @@ const styles = {
   },
   logoText: { 
     marginLeft: '10px', 
-    fontSize: '24px', 
+    fontSize: '34px', 
     fontWeight: 'bold', 
     color: '#1A73E8', 
     letterSpacing: '1px' 
