@@ -14,7 +14,6 @@ const Footer = () => {
           <p style={styles.text}><Mail size={16} color="#1A73E8" /> support@critixo.com</p>
           <p style={styles.text}><Phone size={16} color="#1A73E8" /> +92 344 8665265</p>
         </div>
-
         <div style={styles.section}>
           <h4 style={{ marginBottom: '15px' }}>Follow Us</h4>
           <div style={styles.socials}>
