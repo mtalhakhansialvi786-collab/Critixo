@@ -123,14 +123,54 @@ const Admin = () => {
 
 const styles = {
   topGrid: { display: 'grid', gridTemplateColumns: '1.2fr 0.8fr', gap: '30px' },
-  sectionCard: { background: '#161616', padding: '25px', borderRadius: '15px', border: '1px solid #333' },
+  sectionCard: { 
+    background: '#ffffff', // Card background pure white for contrast
+    padding: '25px', 
+    borderRadius: '15px', 
+    border: '1px solid #ddd' // Light border instead of dark
+  },
   form: { display: 'flex', flexDirection: 'column', gap: '15px' },
-  input: { padding: '12px', borderRadius: '8px', background: '#222', border: '1px solid #444', color: 'white', outline: 'none' },
-  textarea: { padding: '12px', height: '80px', borderRadius: '8px', background: '#222', border: '1px solid #444', color: 'white', resize: 'none' },
-  btn: { padding: '15px', background: '#ff4d4d', color: 'white', border: 'none', borderRadius: '8px', fontWeight: 'bold', cursor: 'pointer' },
-  reqItem: { padding: '10px', borderBottom: '1px solid #333', marginBottom: '10px' },
+  input: { 
+    padding: '12px', 
+    borderRadius: '8px', 
+    background: '#f1efe2', // White/Cream background
+    border: '1px solid #ccc', 
+    color: '#333', // Dark text for readability
+    outline: 'none' 
+  },
+  textarea: { 
+    padding: '12px', 
+    height: '80px', 
+    borderRadius: '8px', 
+    background: '#f1efe2', 
+    border: '1px solid #ccc', 
+    color: '#333', 
+    resize: 'none' 
+  },
+  btn: { 
+    padding: '15px', 
+    background: '#1A73E8', // Red changed to Blue
+    color: 'white', 
+    border: 'none', 
+    borderRadius: '8px', 
+    fontWeight: 'bold', 
+    cursor: 'pointer' 
+  },
+  reqItem: { 
+    padding: '10px', 
+    borderBottom: '1px solid #ddd', 
+    marginBottom: '10px',
+    color: '#333' 
+  },
   inventoryGrid: { display: 'grid', gridTemplateColumns: 'repeat(auto-fill, minmax(300px, 1fr))', gap: '15px' },
-  bookRow: { display: 'flex', alignItems: 'center', background: '#161616', padding: '15px', borderRadius: '12px', border: '1px solid #222' },
+  bookRow: { 
+    display: 'flex', 
+    alignItems: 'center', 
+    background: '#ffffff', 
+    padding: '15px', 
+    borderRadius: '12px', 
+    border: '1px solid #ddd' 
+  },
   miniImg: { width: '50px', height: '70px', objectFit: 'cover', borderRadius: '5px' },
   actions: { display: 'flex', gap: '15px' }
 };
