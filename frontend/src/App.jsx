@@ -11,7 +11,8 @@ function App() {
 
   return (
     <Router>
-      <div style={{ display: 'flex', flexDirection: 'column', minHeight: '100vh', background: '#0a0a0a' }}>
+      {/* Background color changed to #f1efe2 */}
+      <div style={{ display: 'flex', flexDirection: 'column', minHeight: '100vh', background: '#f1efe2' }}>
         {/* Navbar ko searchTerm pass kiya takay search kaam kare */}
         <Navbar searchTerm={searchTerm} setSearchTerm={setSearchTerm} />
         
