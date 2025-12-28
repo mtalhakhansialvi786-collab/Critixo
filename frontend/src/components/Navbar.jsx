@@ -85,8 +85,10 @@ const styles = {
     fontSize: '34px', 
     fontWeight: 'bold', 
     color: '#1A73E8', 
-    letterSpacing: '1px' 
-  },
+    letterSpacing: '1px',
+    
+    textShadow: '2px 2px 4px rgba(0, 0, 0, 0.3)' 
+},
   searchBar: { 
     display: 'flex', 
     alignItems: 'center', 
