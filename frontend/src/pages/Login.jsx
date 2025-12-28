@@ -8,6 +8,9 @@ const Login = () => {
     const [password, setPassword] = useState("");
     const [showPassword, setShowPassword] = useState(false);
 
+    // Live Backend URL
+    const API_URL = "https://critixo-mik3.vercel.app/api/auth/login";
+
     const handleGoogleLogin = async () => {
         try {
             const result = await signInWithPopup(auth, googleProvider);
@@ -26,7 +29,8 @@ const Login = () => {
     const handleAdminLogin = async (e) => {
         e.preventDefault();
         try {
-            const res = await axios.post('http://localhost:5000/api/auth/login', { 
+            // Localhost ko live API URL se replace kiya
+            const res = await axios.post(API_URL, { 
                 email: email.trim(), 
                 password: password 
             });
@@ -38,7 +42,8 @@ const Login = () => {
             window.location.href = "/admin";
         } catch (err) {
             console.error("Login Error:", err);
-            alert(err.response?.data?.message || "Server band hai ya credentials ghalat hain!");
+            // Error handling behtar ki taake server response nazar aaye
+            alert(err.response?.data?.message || "Connection failed! Check if backend is running.");
         }
     };
 
