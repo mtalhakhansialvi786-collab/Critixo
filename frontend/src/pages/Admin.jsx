@@ -7,8 +7,11 @@ const Admin = () => {
   const navigate = useNavigate();
   const [books, setBooks] = useState([]);
   const [requests, setRequests] = useState([]);
-  const [isEditing, setIsEditing] = useState(null); // ID store karega agar edit mode ho
+  const [isEditing, setIsEditing] = useState(null); 
   const [book, setBook] = useState({ title: '', description: '', price: '', language: 'Urdu', image: '', reviews: '' });
+
+  // Live Backend Base URL
+  const API_BASE_URL = "https://critixo-mik3.vercel.app/api/books";
 
   useEffect(() => {
     const userEmail = localStorage.getItem('userEmail');
@@ -21,8 +24,9 @@ const Admin = () => {
 
   const fetchData = async () => {
     try {
-      const bRes = await axios.get('http://localhost:5000/api/books/all');
-      const rRes = await axios.get('http://localhost:5000/api/books/requests');
+      // TABDEELI: Live links istemal kiye hain
+      const bRes = await axios.get(`${API_BASE_URL}/all`);
+      const rRes = await axios.get(`${API_BASE_URL}/requests`);
       setBooks(bRes.data);
       setRequests(rRes.data);
     } catch (err) { console.log(err); }
@@ -32,10 +36,12 @@ const Admin = () => {
     e.preventDefault();
     try {
       if (isEditing) {
-        await axios.put(`http://localhost:5000/api/books/edit/${isEditing}`, book);
+        // TABDEELI: localhost hata kar live link dala hai
+        await axios.put(`${API_BASE_URL}/edit/${isEditing}`, book);
         alert("Book Updated!");
       } else {
-        await axios.post('http://localhost:5000/api/books/add', book);
+        // TABDEELI: localhost hata kar live link dala hai
+        await axios.post(`${API_BASE_URL}/add`, book);
         alert("Book Added!");
       }
       setBook({ title: '', description: '', price: '', language: 'Urdu', image: '', reviews: '' });
@@ -53,7 +59,8 @@ const Admin = () => {
   const handleDelete = async (id) => {
     if (window.confirm("Are you sure you want to delete this book?")) {
       try {
-        await axios.delete(`http://localhost:5000/api/books/delete/${id}`);
+        // TABDEELI: localhost hata kar live link dala hai
+        await axios.delete(`${API_BASE_URL}/delete/${id}`);
         fetchData();
       } catch (err) { alert("Delete failed!"); }
     }
