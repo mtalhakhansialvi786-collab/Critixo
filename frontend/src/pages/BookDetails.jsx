@@ -66,20 +66,68 @@ const BookDetails = () => {
 };
 
 const styles = {
-  container: { padding: '140px 8% 60px 8%', background: '#fcfcfc', minHeight: '100vh' },
-  backBtn: { display: 'flex', alignItems: 'center', gap: '8px', border: 'none', background: 'transparent', color: '#0056b3', fontWeight: 'bold', cursor: 'pointer', marginBottom: '30px' },
+  container: { 
+    padding: '140px 8% 60px 8%', 
+    background: '#f1efe2', // Background changed to your cream/white shade
+    minHeight: '100vh' 
+  },
+  backBtn: { 
+    display: 'flex', 
+    alignItems: 'center', 
+    gap: '8px', 
+    border: 'none', 
+    background: 'transparent', 
+    color: '#1A73E8', // Blue color updated
+    fontWeight: 'bold', 
+    cursor: 'pointer', 
+    marginBottom: '30px' 
+  },
   contentWrapper: { display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(300px, 1fr))', gap: '50px' },
-  imageSection: { background: 'white', padding: '20px', borderRadius: '15px', boxShadow: '0 10px 30px rgba(0,0,0,0.05)' },
+  imageSection: { 
+    background: 'white', 
+    padding: '20px', 
+    borderRadius: '15px', 
+    boxShadow: '0 10px 30px rgba(0,0,0,0.05)' 
+  },
   mainImg: { width: '100%', borderRadius: '10px', objectFit: 'contain' },
   detailsSection: { padding: '10px 0' },
-  catTag: { background: '#eef2ff', color: '#0056b3', padding: '5px 15px', borderRadius: '20px', fontSize: '12px', fontWeight: 'bold' },
+  catTag: { 
+    background: '#eef4ff', // Light tint for badge
+    color: '#1A73E8', // Text changed to your Blue
+    padding: '5px 15px', 
+    borderRadius: '20px', 
+    fontSize: '12px', 
+    fontWeight: 'bold' 
+  },
   title: { fontSize: '32px', fontWeight: '900', color: '#1a1a1a', margin: '15px 0' },
-  price: { fontSize: '28px', fontWeight: '800', color: '#0056b3', marginBottom: '25px' },
+  price: { 
+    fontSize: '28px', 
+    fontWeight: '800', 
+    color: '#1A73E8', // Price changed to your Blue
+    marginBottom: '25px' 
+  },
   descText: { color: '#555', lineHeight: '1.7', fontSize: '15px', marginBottom: '30px' },
   trustRow: { display: 'flex', gap: '20px', marginBottom: '30px', borderTop: '1px solid #eee', paddingTop: '20px' },
-  trustItem: { display: 'flex', alignItems: 'center', gap: '8px', fontSize: '13px', fontWeight: '600' },
-  buyBtn: { width: '100%', padding: '18px', background: '#0056b3', color: 'white', border: 'none', borderRadius: '12px', fontWeight: 'bold', cursor: 'pointer', display: 'flex', justifyContent: 'center', gap: '12px' },
-  loader: { textAlign: 'center', marginTop: '200px', fontWeight: 'bold' }
+  trustItem: { display: 'flex', alignItems: 'center', gap: '8px', fontSize: '13px', fontWeight: '600', color: '#1A73E8' },
+  buyBtn: { 
+    width: '100%', 
+    padding: '18px', 
+    background: '#1A73E8', // Button background changed to your Blue
+    color: 'white', 
+    border: 'none', 
+    borderRadius: '12px', 
+    fontWeight: 'bold', 
+    cursor: 'pointer', 
+    display: 'flex', 
+    justifyContent: 'center', 
+    gap: '12px' 
+  },
+  loader: { 
+    textAlign: 'center', 
+    marginTop: '200px', 
+    fontWeight: 'bold',
+    color: '#1A73E8' 
+  }
 };
 
 export default BookDetails;
