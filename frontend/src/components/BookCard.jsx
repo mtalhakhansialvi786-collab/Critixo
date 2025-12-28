@@ -48,16 +48,16 @@ const BookCard = ({ book }) => {
 };
 
 const styles = {
-  card: { border: '1px solid #eee', borderRadius: '12px', textAlign: 'center', width: '260px', background: '#fff', overflow: 'hidden', boxShadow: '0 4px 6px rgba(0,0,0,0.1)' },
+  card: { border: '1px solid #ddd', borderRadius: '12px', textAlign: 'center', width: '260px', background: '#f1efe2', overflow: 'hidden', boxShadow: '0 4px 6px rgba(0,0,0,0.1)' },
   img: { width: '100%', height: '280px', objectFit: 'cover' },
   title: { fontSize: '18px', margin: '10px 0', color: '#333' },
   lang: { color: '#777', fontSize: '14px' },
-  price: { fontWeight: 'bold', color: '#2ecc71', fontSize: '20px', margin: '10px 0' },
-  buyBtn: { background: '#25D366', color: 'white', border: 'none', padding: '12px', borderRadius: '8px', cursor: 'pointer', width: '100%', fontWeight: 'bold' },
+  price: { fontWeight: 'bold', color: '#1A73E8', fontSize: '20px', margin: '10px 0' },
+  buyBtn: { background: '#1A73E8', color: 'white', border: 'none', padding: '12px', borderRadius: '8px', cursor: 'pointer', width: '100%', fontWeight: 'bold' },
   overlay: { position: 'fixed', top: 0, left: 0, width: '100%', height: '100%', background: 'rgba(0,0,0,0.7)', display: 'flex', justifyContent: 'center', alignItems: 'center', zIndex: 1000 },
-  modal: { background: 'white', padding: '25px', borderRadius: '15px', textAlign: 'center', width: '320px', boxShadow: '0 10px 25px rgba(0,0,0,0.2)' },
+  modal: { background: '#f1efe2', padding: '25px', borderRadius: '15px', textAlign: 'center', width: '320px', boxShadow: '0 10px 25px rgba(0,0,0,0.2)' },
   btnGroup: { display: 'flex', flexDirection: 'column', gap: '12px', marginTop: '20px' },
-  waBtn: { background: '#25D366', color: 'white', border: 'none', padding: '12px', borderRadius: '8px', cursor: 'pointer', fontWeight: 'bold' },
+  waBtn: { background: '#1A73E8', color: 'white', border: 'none', padding: '12px', borderRadius: '8px', cursor: 'pointer', fontWeight: 'bold' },
   callBtn: { background: '#3498db', color: 'white', border: 'none', padding: '12px', borderRadius: '8px', cursor: 'pointer', fontWeight: 'bold' },
   closeBtn: { marginTop: '15px', background: 'none', border: 'none', color: '#888', cursor: 'pointer', textDecoration: 'underline' }
 };
