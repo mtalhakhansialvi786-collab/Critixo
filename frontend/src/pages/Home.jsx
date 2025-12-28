@@ -39,8 +39,8 @@ const Home = ({ searchTerm }) => {
     <div style={styles.container}>
       {/* Hero Section */}
       <header style={styles.hero}>
-        <h1 style={styles.heroTitle}>Welcome to <span style={{color: '#ff4d4d'}}>Critixo</span></h1>
-        <p style={styles.heroSub}>Pakistan's Most Premium Book Store</p>
+        <h1 style={styles.heroTitle}>Welcome to <span style={{color: '#0968e6'}}>Critixo</span></h1>
+        <p style={styles.heroSub}>Your next great read is just a click away</p>
       </header>
 
       {/* Books Grid */}
@@ -61,7 +61,7 @@ const Home = ({ searchTerm }) => {
               <p style={styles.price}>Rs. {book.price}</p>
               
               <button onClick={() => handleBuy(book.title)} style={styles.buyBtn}>
-                <ShoppingCart size={18} /> Buy via WhatsApp
+                <ShoppingCart size={18} /> Buy Book
               </button>
             </div>
           </div>
