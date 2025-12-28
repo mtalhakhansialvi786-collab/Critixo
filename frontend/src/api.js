@@ -1,50 +1,18 @@
-/**
- * @fileoverview Expose out ESLint and CLI to require.
- * @author Ian Christian Myers
- */
+import axios from "axios";
 
-"use strict";
+// Ye line Vercel se VITE_API_URL uthaye gi, aur agar local ho to 5000 use karegi
+const API_URL = import.meta.env.VITE_API_URL || "http://localhost:5000";
 
-//-----------------------------------------------------------------------------
-// Requirements
-//-----------------------------------------------------------------------------
+// 🔹 Get all books
+export const fetchBooks = async () => {
+  const res = await axios.get(`${API_URL}/api/books/all`); // Check karein endpoint 'all' hai ya nahi
+  return res.data;
+};
 
-const { ESLint, shouldUseFlatConfig } = require("./eslint/eslint");
-const { LegacyESLint } = require("./eslint/legacy-eslint");
-const { Linter } = require("./linter");
-const { RuleTester } = require("./rule-tester");
-const { SourceCode } = require("./languages/js/source-code");
-
-//-----------------------------------------------------------------------------
-// Functions
-//-----------------------------------------------------------------------------
-
-/**
- * Loads the correct ESLint constructor given the options.
- * @param {Object} [options] The options object
- * @param {boolean} [options.useFlatConfig] Whether or not to use a flat config
- * @returns {Promise<ESLint|LegacyESLint>} The ESLint constructor
- */
-async function loadESLint({ useFlatConfig } = {}) {
-	/*
-	 * Note: The v8.x version of this function also accepted a `cwd` option, but
-	 * it is not used in this implementation so we silently ignore it.
-	 */
-
-	const shouldESLintUseFlatConfig =
-		useFlatConfig ?? (await shouldUseFlatConfig());
-
-	return shouldESLintUseFlatConfig ? ESLint : LegacyESLint;
-}
-
-//-----------------------------------------------------------------------------
-// Exports
-//-----------------------------------------------------------------------------
-
-module.exports = {
-	Linter,
-	loadESLint,
-	ESLint,
-	RuleTester,
-	SourceCode,
+// 🔹 Create order (WhatsApp)
+export const createOrder = async (bookId, whatsapp) => {
+  return await axios.post(`${API_URL}/api/orders`, {
+    bookId,
+    whatsapp,
+  });
 };
