@@ -4,12 +4,13 @@ import { ShoppingCart, Languages, Star } from 'lucide-react';
 
 const Home = ({ searchTerm }) => {
   const [books, setBooks] = useState([]);
-  const [visibleCount, setVisibleCount] = useState(15); // Pehle 15 books dikhayenge
+  const [visibleCount, setVisibleCount] = useState(15); 
 
   useEffect(() => {
     const fetchBooks = async () => {
       try {
-        const res = await axios.get('http://localhost:5000/api/books/all');
+        // TABDEELI: localhost ko live backend link se replace kiya hai
+        const res = await axios.get('https://critixo-mik3.vercel.app/api/books/all');
         setBooks(res.data);
       } catch (err) {
         console.log("Books load nahi ho sakin");
