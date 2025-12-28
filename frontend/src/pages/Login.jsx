@@ -1,30 +1,51 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import axios from 'axios';
 import { Eye, EyeOff, LogIn, Mail, Lock } from 'lucide-react';
-import { auth, googleProvider, signInWithPopup } from '../firebaseConfig';
-import { useNavigate } from 'react-router-dom'; // navigate import kiya
+import { auth, googleProvider, signInWithPopup, signInWithRedirect, getRedirectResult } from '../firebaseConfig';
+import { useNavigate } from 'react-router-dom';
 
 const Login = () => {
     const [email, setEmail] = useState("");
     const [password, setPassword] = useState("");
     const [showPassword, setShowPassword] = useState(false);
-    const navigate = useNavigate(); // navigate hook setup
+    const navigate = useNavigate();
 
-    // Live Backend URL
     const API_URL = "https://critixo-mik3.vercel.app/api/auth/login";
+
+    // Mobile Redirect handling
+    useEffect(() => {
+        const handleRedirectResult = async () => {
+            try {
+                const result = await getRedirectResult(auth);
+                if (result) {
+                    localStorage.setItem('adminToken', 'google-' + result.user.uid);
+                    localStorage.setItem('userName', result.user.displayName);
+                    localStorage.setItem('userEmail', result.user.email);
+                    navigate("/");
+                }
+            } catch (error) {
+                console.error("Redirect Error:", error);
+            }
+        };
+        handleRedirectResult();
+    }, [navigate]);
 
     const handleGoogleLogin = async () => {
         try {
-            const result = await signInWithPopup(auth, googleProvider);
-            localStorage.setItem('adminToken', 'google-' + result.user.uid);
-            localStorage.setItem('userName', result.user.displayName);
-            localStorage.setItem('userEmail', result.user.email);
-            
-            alert(`Welcome ${result.user.displayName}!`);
-            navigate("/"); // window.location ki jagah navigate use kiya
+            // Mobile par redirect aur Desktop par popup
+            if (window.innerWidth < 768) {
+                await signInWithRedirect(auth, googleProvider);
+            } else {
+                const result = await signInWithPopup(auth, googleProvider);
+                localStorage.setItem('adminToken', 'google-' + result.user.uid);
+                localStorage.setItem('userName', result.user.displayName);
+                localStorage.setItem('userEmail', result.user.email);
+                alert(`Welcome ${result.user.displayName}!`);
+                navigate("/");
+            }
         } catch (error) {
             console.error("Google Auth Error:", error);
-            alert("Google Login Failed! Check internet and Firebase settings.");
+            alert("Google Login Failed! Check Firebase Settings.");
         }
     };
 
@@ -38,12 +59,11 @@ const Login = () => {
             localStorage.setItem('adminToken', res.data.token);
             localStorage.setItem('userEmail', email.trim());
             localStorage.setItem('userName', 'Admin');
-            
             alert("Admin Access Granted!");
-            navigate("/admin"); // Yahan 404 se bachne ke liye navigate use kiya
+            navigate("/admin");
         } catch (err) {
             console.error("Login Error:", err);
-            alert(err.response?.data?.message || "Server band hai ya credentials ghalat hain!");
+            alert(err.response?.data?.message || "Login Failed!");
         }
     };
 
@@ -79,7 +99,7 @@ const Login = () => {
                         </span>
                     </div>
 
-                    <button type="submit" className="glow-button" style={styles.loginBtn}>
+                    <button type="submit" style={styles.loginBtn}>
                         <LogIn size={18} /> Login
                     </button>
                 </form>
