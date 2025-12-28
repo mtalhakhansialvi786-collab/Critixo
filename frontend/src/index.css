@@ -6,8 +6,8 @@
 }
 
 body {
-  background-color: #0f0f0f;
-  color: #ffffff;
+  background-color: #f1efe2; /* Background changed to your cream/white shade */
+  color: #1a1a1a; /* Text color changed to dark for readability on white background */
   overflow-x: hidden;
 }
 
@@ -16,10 +16,10 @@ body {
   width: 8px;
 }
 ::-webkit-scrollbar-track {
-  background: #1a1a1a;
+  background: #f1efe2; /* Track background matches body */
 }
 ::-webkit-scrollbar-thumb {
-  background: #ff4d4d;
+  background: #1A73E8; /* Scrollbar thumb changed to your Blue */
   border-radius: 10px;
 }
 
@@ -30,7 +30,7 @@ body {
   overflow: hidden;
 }
 .glow-button:hover {
-  box-shadow: 0 0 20px #ff4d4d;
+  box-shadow: 0 0 20px rgba(26, 115, 232, 0.4); /* Glow effect changed to Blue */
   transform: translateY(-2px);
 }
 
@@ -40,9 +40,15 @@ body {
   margin: 40px auto;
   padding: 12px 40px;
   background: transparent;
-  color: white;
-  border: 2px solid #ff4d4d;
+  color: #1A73E8; /* Text color changed to Blue */
+  border: 2px solid #1A73E8; /* Border changed to Blue */
   border-radius: 30px;
   cursor: pointer;
   font-weight: bold;
+  transition: 0.3s;
+}
+
+.load-more:hover {
+  background: #1A73E8;
+  color: white;
 }
