@@ -13,9 +13,9 @@ app.use(helmet({
   crossOriginResourcePolicy: false
 }));
 
-// CORS Configuration - Frontend URL ko allow kiya
+// CORS Configuration - Fixed: Sab origins ko allow kar diya taake preview links bhi chalen
 app.use(cors({
-  origin: "https://critixo-strq.vercel.app",
+  origin: "*", 
   methods: ["GET", "POST", "PUT", "DELETE"],
   credentials: true
 }));
