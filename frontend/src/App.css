@@ -3,6 +3,8 @@
   margin: 0 auto;
   padding: 2rem;
   text-align: center;
+  background-color: #f1efe2; /* Background changed to your white/cream shade */
+  min-height: 100vh;
 }
 
 .logo {
@@ -11,11 +13,14 @@
   will-change: filter;
   transition: filter 300ms;
 }
+
+/* Hover effects updated to your Blue shade #1A73E8 */
 .logo:hover {
-  filter: drop-shadow(0 0 2em #646cffaa);
+  filter: drop-shadow(0 0 2em #1A73E8aa);
 }
+
 .logo.react:hover {
-  filter: drop-shadow(0 0 2em #61dafbaa);
+  filter: drop-shadow(0 0 2em #1A73E8aa);
 }
 
 @keyframes logo-spin {
@@ -35,8 +40,17 @@
 
 .card {
   padding: 2em;
+  background: white; /* Card white rakha hai taake cream bg par nazar aaye */
+  border-radius: 8px;
+  margin-top: 2rem;
 }
 
 .read-the-docs {
-  color: #888;
+  color: #666; /* Thora dark gray taake white background par parha jaye */
+}
+
+/* Hyperlinks color updated to your Blue */
+a {
+  color: #1A73E8;
+  text-decoration: none;
 }
