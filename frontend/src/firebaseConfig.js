@@ -1,5 +1,11 @@
 import { initializeApp } from "firebase/app";
-import { getAuth, GoogleAuthProvider, signInWithPopup } from "firebase/auth";
+import { 
+    getAuth, 
+    GoogleAuthProvider, 
+    signInWithPopup, 
+    signInWithRedirect, 
+    getRedirectResult 
+} from "firebase/auth";
 
 const firebaseConfig = {
   apiKey: "AIzaSyCd3huW5yWGdLHaee2Lknw9I3nCvkdqlcE",
@@ -11,7 +17,12 @@ const firebaseConfig = {
   measurementId: "G-T8B3GDTGJ9"
 };
 
+// Initialize Firebase
 const app = initializeApp(firebaseConfig);
+
+// Exports
 export const auth = getAuth(app);
 export const googleProvider = new GoogleAuthProvider();
-export { signInWithPopup };
+
+// Mobile support ke liye extra functions export kiye
+export { signInWithPopup, signInWithRedirect, getRedirectResult };
