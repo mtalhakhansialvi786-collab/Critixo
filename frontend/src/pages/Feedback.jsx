@@ -79,16 +79,72 @@ const Feedback = () => {
 };
 
 const styles = {
-    container: { padding: '140px 5% 60px 5%', background: '#f8faff', minHeight: '100vh', display: 'flex', justifyContent: 'center', alignItems: 'center' },
-    card: { background: 'white', padding: '40px', borderRadius: '24px', boxShadow: '0 15px 35px rgba(0,86,179,0.08)', width: '100%', maxWidth: '500px', textAlign: 'center', border: '1px solid #eef2ff' },
-    iconCircle: { background: '#0056b3', width: '70px', height: '70px', borderRadius: '50%', display: 'flex', alignItems: 'center', justifyContent: 'center', margin: '0 auto 20px auto' },
+    container: { 
+        padding: '140px 5% 60px 5%', 
+        background: '#f1efe2', // Background changed to your cream/white shade
+        minHeight: '100vh', 
+        display: 'flex', 
+        justifyContent: 'center', 
+        alignItems: 'center' 
+    },
+    card: { 
+        background: 'white', 
+        padding: '40px', 
+        borderRadius: '24px', 
+        boxShadow: '0 15px 35px rgba(26,115,232,0.1)', // Shadow color adjusted for blue theme
+        width: '100%', 
+        maxWidth: '500px', 
+        textAlign: 'center', 
+        border: '1px solid #e2e8f0' 
+    },
+    iconCircle: { 
+        background: '#1A73E8', // Circle background changed to your Blue
+        width: '70px', 
+        height: '70px', 
+        borderRadius: '50%', 
+        display: 'flex', 
+        alignItems: 'center', 
+        justifyContent: 'center', 
+        margin: '0 auto 20px auto' 
+    },
     title: { color: '#1a1a1a', fontSize: '24px', fontWeight: '800', marginBottom: '8px' },
     subtitle: { color: '#666', marginBottom: '30px', fontSize: '14px' },
     form: { display: 'flex', flexDirection: 'column', gap: '15px' },
-    input: { padding: '14px', borderRadius: '12px', border: '1px solid #dbeafe', outline: 'none', background: '#fcfdff', fontSize: '14px' },
+    input: { 
+        padding: '14px', 
+        borderRadius: '12px', 
+        border: '1px solid #dbeafe', 
+        outline: 'none', 
+        background: '#ffffff', 
+        fontSize: '14px',
+        color: '#333'
+    },
     ratingBox: { display: 'flex', justifyContent: 'space-between', alignItems: 'center', padding: '10px 5px', color: '#444' },
-    textarea: { padding: '14px', borderRadius: '12px', border: '1px solid #dbeafe', height: '120px', resize: 'none', outline: 'none', background: '#fcfdff', fontSize: '14px' },
-    btn: { padding: '16px', background: '#0056b3', color: 'white', border: 'none', borderRadius: '12px', fontWeight: 'bold', cursor: 'pointer', display: 'flex', justifyContent: 'center', gap: '10px', fontSize: '16px', transition: '0.3s' },
+    textarea: { 
+        padding: '14px', 
+        borderRadius: '12px', 
+        border: '1px solid #dbeafe', 
+        height: '120px', 
+        resize: 'none', 
+        outline: 'none', 
+        background: '#ffffff', 
+        fontSize: '14px',
+        color: '#333'
+    },
+    btn: { 
+        padding: '16px', 
+        background: '#1A73E8', // Button color changed to your Blue
+        color: 'white', 
+        border: 'none', 
+        borderRadius: '12px', 
+        fontWeight: 'bold', 
+        cursor: 'pointer', 
+        display: 'flex', 
+        justifyContent: 'center', 
+        gap: '10px', 
+        fontSize: '16px', 
+        transition: '0.3s' 
+    },
     successMsg: { background: '#dcfce7', color: '#166534', padding: '12px', borderRadius: '10px', marginBottom: '20px', fontSize: '14px', fontWeight: '600' }
 };
 
