@@ -120,18 +120,98 @@ const Login = () => {
 };
 
 const styles = {
-    container: { height: '100vh', display: 'flex', justifyContent: 'center', alignItems: 'center', background: '#0a0a0a', width: '100vw' },
-    card: { background: '#121212', padding: '40px', borderRadius: '24px', width: '380px', textAlign: 'center', border: '1px solid #333', boxShadow: '0 20px 40px rgba(0,0,0,0.4)' },
-    title: { color: 'white', fontSize: '28px', fontWeight: '800', marginBottom: '5px' },
-    subtitle: { color: '#888', marginBottom: '30px', fontSize: '14px' },
-    form: { display: 'flex', flexDirection: 'column', gap: '15px' },
-    inputGroup: { display: 'flex', alignItems: 'center', background: '#1a1a1a', padding: '12px 15px', borderRadius: '12px', border: '1px solid #333' },
-    input: { background: 'transparent', border: 'none', outline: 'none', color: 'white', marginLeft: '10px', width: '100%', fontSize: '15px' },
-    eye: { cursor: 'pointer', color: '#888', marginLeft: '10px' },
-    loginBtn: { padding: '14px', background: '#ff4d4d', color: 'white', border: 'none', borderRadius: '12px', fontWeight: 'bold', cursor: 'pointer', display: 'flex', alignItems: 'center', justifyContent: 'center', gap: '10px' },
-    divider: { display: 'flex', alignItems: 'center', margin: '25px 0' },
-    dividerLine: { flex: 1, height: '1px', background: '#333' },
-    googleBtn: { width: '100%', padding: '12px', borderRadius: '12px', border: '1px solid #333', background: '#1a1a1a', color: 'white', display: 'flex', alignItems: 'center', justifyContent: 'center', gap: '12px', cursor: 'pointer', fontWeight: '600' }
+    container: { 
+        height: '100vh', 
+        display: 'flex', 
+        justifyContent: 'center', 
+        alignItems: 'center', 
+        background: '#f1efe2', // Main Background changed to white/cream
+        width: '100vw' 
+    },
+    card: { 
+        background: '#ffffff', // Card background to pure white
+        padding: '40px', 
+        borderRadius: '24px', 
+        width: '380px', 
+        textAlign: 'center', 
+        border: '1px solid #ddd', // Light border for white theme
+        boxShadow: '0 10px 30px rgba(0,0,0,0.1)' 
+    },
+    title: { 
+        color: '#1A73E8', // Title changed to Blue
+        fontSize: '28px', 
+        fontWeight: '800', 
+        marginBottom: '5px' 
+    },
+    subtitle: { 
+        color: '#666', // Darker gray for readability on white
+        marginBottom: '30px', 
+        fontSize: '14px' 
+    },
+    form: { 
+        display: 'flex', 
+        flexDirection: 'column', 
+        gap: '15px' 
+    },
+    inputGroup: { 
+        display: 'flex', 
+        alignItems: 'center', 
+        background: '#f9f9f9', // Light input background
+        padding: '12px 15px', 
+        borderRadius: '12px', 
+        border: '1px solid #ddd' 
+    },
+    input: { 
+        background: 'transparent', 
+        border: 'none', 
+        outline: 'none', 
+        color: '#333', // Input text color to dark gray
+        marginLeft: '10px', 
+        width: '100%', 
+        fontSize: '15px' 
+    },
+    eye: { 
+        cursor: 'pointer', 
+        color: '#888', 
+        marginLeft: '10px' 
+    },
+    loginBtn: { 
+        padding: '14px', 
+        background: '#1A73E8', // Button color changed to Blue
+        color: 'white', 
+        border: 'none', 
+        borderRadius: '12px', 
+        fontWeight: 'bold', 
+        cursor: 'pointer', 
+        display: 'flex', 
+        alignItems: 'center', 
+        justifyContent: 'center', 
+        gap: '10px' 
+    },
+    divider: { 
+        display: 'flex', 
+        alignItems: 'center', 
+        margin: '25px 0' 
+    },
+    dividerLine: { 
+        flex: 1, 
+        height: '1px', 
+        background: '#ddd' 
+    },
+    googleBtn: { 
+        width: '100%', 
+        padding: '12px', 
+        borderRadius: '12px', 
+        border: '1px solid #ddd', 
+        background: '#ffffff', 
+        color: '#333', // Google text to dark gray
+        display: 'flex', 
+        alignItems: 'center', 
+        justifyContent: 'center', 
+        gap: '12px', 
+        cursor: 'pointer', 
+        fontWeight: '600' 
+    }
 };
 
 export default Login;
