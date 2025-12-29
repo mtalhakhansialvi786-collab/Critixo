@@ -5,8 +5,8 @@ const Footer = () => {
     <footer style={styles.footer}>
       <div style={styles.content}>
         <div style={styles.section}>
-          <h3 style={styles.logo}>CRITIXO</h3>
-          <p style={styles.text}>Pakistan's premium destination for book lovers. Quality and authenticity guaranteed.</p> 
+          <h3 style={styles.logo}>Critixo</h3>
+          <p style={styles.text}>Pakistan's premium destination for book lovers. Read more, spend less. Your favorite bookstore online.</p> 
         </div>
         
         <div style={styles.section}>
@@ -32,7 +32,7 @@ const Footer = () => {
 
 const styles = {
   footer: { 
-    background: '#f1efe2', 
+    background: '#FFFFFF', 
     padding: '50px 5% 20px 5%', 
     borderTop: '1px solid #ddd', 
     marginTop: '50px',
