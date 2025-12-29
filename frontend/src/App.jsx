@@ -1,5 +1,6 @@
 import React, { useState } from 'react';
 import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
+import { Analytics } from '@vercel/analytics/react'; // Analytics import ki
 import Navbar from './components/Navbar';
 import Footer from './components/Footer';
 import Home from './pages/Home';
@@ -11,12 +12,9 @@ function App() {
 
   return (
     <Router>
-      {/* Background color changed to #f1efe2 */}
       <div style={{ display: 'flex', flexDirection: 'column', minHeight: '100vh', background: '#f1efe2' }}>
-        {/* Navbar ko searchTerm pass kiya takay search kaam kare */}
         <Navbar searchTerm={searchTerm} setSearchTerm={setSearchTerm} />
         
-        {/* Main Content Area: flex: 1 takay footer niche rahe */}
         <main style={{ flex: 1, marginTop: '20px' }}>
           <Routes>
             <Route path="/" element={<Home searchTerm={searchTerm} />} />
@@ -26,6 +24,7 @@ function App() {
         </main>
 
         <Footer />
+        <Analytics /> {/* Yeh line aapka traffic track karegi */}
       </div>
     </Router>
   );
