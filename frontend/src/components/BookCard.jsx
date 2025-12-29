@@ -6,7 +6,7 @@ const BookCard = ({ book }) => {
 
   const handleAction = (type) => {
     // WhatsApp par message bhejne ke liye text tyar karna
-    const message = `Assalam-o-Alaikum, mujhe ye book chahiye: *${book.title}*\nPrice: ${book.price}\nLanguage: ${book.language}`;
+    const message = `Hello! I want to buy: *${book.title}*\nPrice: ${book.price}\nLanguage: ${book.language}`;
     
     if (type === 'message') {
       window.open(`https://wa.me/${myNumber}?text=${encodeURIComponent(message)}`, "_blank");
@@ -34,7 +34,7 @@ const BookCard = ({ book }) => {
         <div style={styles.overlay}>
           <div style={styles.modal}>
             <h4 style={{color: 'black'}}>Order: {book.title}</h4>
-            <p style={{color: '#666', fontSize: '14px'}}>Aap is book ke liye kaise rabta karna chahte hain?</p>
+            <p style={{color: '#666', fontSize: '14px'}}>Choose a way to get book</p>
             <div style={styles.btnGroup}>
               <button onClick={() => handleAction('message')} style={styles.waBtn}>💬 Direct Message</button>
               <button onClick={() => handleAction('call')} style={styles.callBtn}>📞 Call Now</button>
