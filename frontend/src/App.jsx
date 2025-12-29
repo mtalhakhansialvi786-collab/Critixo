@@ -12,7 +12,7 @@ function App() {
 
   return (
     <Router>
-      <div style={{ display: 'flex', flexDirection: 'column', minHeight: '100vh', background: '#f1efe2' }}>
+      <div style={{ display: 'flex', flexDirection: 'column', minHeight: '100vh', background: '#fffafa' }}>
         <Navbar searchTerm={searchTerm} setSearchTerm={setSearchTerm} />
         
         <main style={{ flex: 1, marginTop: '20px' }}>
