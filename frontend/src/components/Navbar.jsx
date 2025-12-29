@@ -17,7 +17,7 @@ const Navbar = ({ searchTerm, setSearchTerm }) => {
 
   return (
     <nav style={styles.nav}>
-      {/* Logo Section - Yahan main-logo.png add kiya gaya hai */}
+      
       <div style={styles.logoContainer} onClick={() => navigate('/')}>
         <span style={styles.logoText}>Citixo</span>
       </div>
