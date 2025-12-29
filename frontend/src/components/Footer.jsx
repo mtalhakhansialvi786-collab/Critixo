@@ -1,5 +1,6 @@
 import React from 'react';
 import { Facebook, Twitter, Instagram, Mail, Phone } from 'lucide-react';
+
 const Footer = () => {
   return (
     <footer style={styles.footer}>
@@ -14,10 +15,14 @@ const Footer = () => {
           <p style={styles.text}><Mail size={16} color="#1A73E8" /> support@critixo.com</p>
           <p style={styles.text}><Phone size={16} color="#1A73E8" /> +92 344 8665265</p>
         </div>
+
         <div style={styles.section}>
           <h4 style={{ marginBottom: '15px' }}>Follow Us</h4>
           <div style={styles.socials}>
-            <Facebook style={styles.icon} />
+            {/* Facebook link added here */}
+            <a href="https://www.facebook.com/profile.php?id=61574169407534" target="_blank" rel="noopener noreferrer">
+              <Facebook style={styles.icon} />
+            </a>
             <Instagram style={styles.icon} />
             <Twitter style={styles.icon} />
           </div>
@@ -36,7 +41,7 @@ const styles = {
     padding: '50px 5% 20px 5%', 
     borderTop: '1px solid #ddd', 
     marginTop: '50px',
-    color: '#333' // Text ko black/dark kiya taake light background pe nazar aaye
+    color: '#333'
   },
   content: { display: 'flex', justifyContent: 'space-between', flexWrap: 'wrap', gap: '30px' },
   section: { flex: '1', minWidth: '200px' },
@@ -61,4 +66,5 @@ const styles = {
     paddingTop: '20px' 
   }
 };
+
 export default Footer;
