@@ -85,7 +85,7 @@ const styles = {
     fontSize: '44px', 
     fontWeight: '900', 
     color: '#1A73E8', 
-    letterSpacing: '2px',
+    letterSpacing: '0px',
     
     textShadow: '2px 2px 4px rgba(0, 0, 0, 0.3)' 
 },
