@@ -81,11 +81,11 @@ const styles = {
     objectFit: 'contain' 
   },
   logoText: { 
-    marginLeft: '10px', 
-    fontSize: '34px', 
-    fontWeight: 'bold', 
+    marginLeft: '12px', 
+    fontSize: '44px', 
+    fontWeight: '900', 
     color: '#1A73E8', 
-    letterSpacing: '1px',
+    letterSpacing: '2px',
     
     textShadow: '2px 2px 4px rgba(0, 0, 0, 0.3)' 
 },
