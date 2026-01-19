@@ -38,7 +38,7 @@ const Navbar = ({ searchTerm, setSearchTerm }) => {
           <BookOpen size={24} color="#fff" />
         </div>
         <h1 style={styles.logoText}>
-          Crit<span style={{ color: '#1A73E8' }}>ixo</span>
+          <span style={{ color: '#1A73E8' }}>Critixo</span>
         </h1>
       </div>
 
