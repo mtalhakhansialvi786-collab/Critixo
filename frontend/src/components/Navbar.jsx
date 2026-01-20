@@ -34,9 +34,9 @@ const Navbar = ({ searchTerm, setSearchTerm }) => {
       
       {/* --- PROFESSIONAL LOGO --- */}
       <div style={styles.logoContainer} onClick={() => navigate('/')}>
-        <div style={styles.logoIcon}>
-          {/* <BookOpen size={24} color="#fff" /> */}
-        </div>
+        {/* <div style={styles.logoIcon}>
+          <BookOpen size={24} color="#fff" /> 
+        </div> */}
         <h1 style={styles.logoText}>
           <span style={{ color: '#1A73E8' }}>Critixo</span>
         </h1>
