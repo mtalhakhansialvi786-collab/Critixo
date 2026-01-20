@@ -25,13 +25,13 @@ const Footer = () => {
             <a href="https://www.facebook.com/profile.php?id=61574169407534" target="_blank" rel="noopener noreferrer" style={styles.iconLink}>
               <Facebook style={styles.icon} size={20} />
             </a>
-            <a href="#" style={styles.iconLink}><Instagram style={styles.icon} size={20} /></a>
-            <a href="#" style={styles.iconLink}><Twitter style={styles.icon} size={20} /></a>
+            <a href="https://www.instagram.com/talha_sialvioffical/" style={styles.iconLink}><Instagram style={styles.icon} size={20} /></a>
+            <a href="https://x.com/talha_sialvi9" style={styles.iconLink}><Twitter style={styles.icon} size={20} /></a>
           </div>
         </div>
 
         {/* Section 2: Quick Links */}
-        <div style={styles.section}>
+        {/* <div style={styles.section}>
           <h4 style={styles.heading}>Quick Links</h4>
           <ul style={styles.list}>
             <li style={styles.listItem}><ExternalLink size={14} /> Shop Books</li>
@@ -39,7 +39,7 @@ const Footer = () => {
             <li style={styles.listItem}><ExternalLink size={14} /> Privacy Policy</li>
             <li style={styles.listItem}><ExternalLink size={14} /> Terms of Service</li>
           </ul>
-        </div>
+        </div> */}
 
         {/* Section 3: Contact Info */}
         <div style={styles.section}>
