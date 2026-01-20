@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import axios from 'axios';
 import { ShoppingCart, Star, Sparkles, ArrowDown } from 'lucide-react';
-import BookCard from './BookCard'; // Jo Card humne pehle design kiya wo yahan use hoga
+import BookCard from '../components/BookCard';
 
 const Home = ({ searchTerm }) => {
   const [books, setBooks] = useState([]);
