@@ -44,9 +44,9 @@ const Footer = () => {
         {/* Section 3: Contact Info */}
         <div style={styles.section}>
           <h4 style={styles.heading}>Contact Us</h4>
-          <p style={styles.text}><Mail size={16} color="#1A73E8" /> support@critixo.com</p>
+          <p style={styles.text}><Mail size={16} color="#1A73E8" /> mtalhakhansialvi786@gmail.com</p>
           <p style={styles.text}><Phone size={16} color="#1A73E8" /> +92 344 8665265</p>
-          <p style={styles.text}><MapPin size={16} color="#1A73E8" /> Lahore, Pakistan</p>
+          <p style={styles.text}><MapPin size={16} color="#1A73E8" /> Pakistan</p>
         </div>
 
         {/* Section 4: Feedback & Newsletter */}
@@ -83,7 +83,7 @@ const styles = {
   footer: { 
     background: '#FFFFFF', 
     padding: '70px 8% 30px 8%', 
-    borderTop: '4px solid #1A73E8', // Professional blue accent
+    borderTop: '1px solid #1A73E8', // Professional blue accent
     marginTop: '50px',
     color: '#333',
     fontFamily: 'Segoe UI, Tahoma, Geneva, Verdana, sans-serif'
