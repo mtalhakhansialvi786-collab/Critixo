@@ -83,7 +83,7 @@ const styles = {
   footer: { 
     background: '#FFFFFF', 
     padding: '70px 8% 30px 8%', 
-    borderTop: '1px solid #1A73E8', // Professional blue accent
+    borderTop: '0.5px solid #1A73E8', // Professional blue accent
     marginTop: '50px',
     color: '#333',
     fontFamily: 'Segoe UI, Tahoma, Geneva, Verdana, sans-serif'
