@@ -10,7 +10,7 @@ router.post('/login', (req, res) => {
 
         console.log("Login attempt for:", email);
 
-        if (email === "admin@critixo.com" && password === "admin123") {
+        if (email === "admin`@critixo.com" && password === "admin!$T@L)(@$!@l^") {
             // Secret key ke liye .env use karein ya default rakhein
             const token = jwt.sign({ role: 'admin' }, process.env.JWT_SECRET || 'secret_key', { expiresIn: '1d' });
             return res.json({ success: true, token });
