@@ -9,7 +9,7 @@ const Navbar = ({ searchTerm, setSearchTerm }) => {
   const token = localStorage.getItem('adminToken');
   const userEmail = localStorage.getItem('userEmail');
   const userName = localStorage.getItem('userName');
-  const isAdmin = userEmail === "admin@critixo.com";
+  const isAdmin = userEmail === "admin`@critixo.com";
 
   useEffect(() => {
     const handleScroll = () => {
