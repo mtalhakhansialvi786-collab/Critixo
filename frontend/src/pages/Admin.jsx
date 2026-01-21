@@ -180,13 +180,13 @@
 import React, { useState, useEffect } from 'react';
 import axios from 'axios';
 import { useNavigate } from 'react-router-dom';
-import { Trash2, Edit3, PlusCircle, MessageSquare, BookOpen, Bell } from 'lucide-react';
+import { Trash2, Edit3, PlusCircle, MessageSquare, BookOpen, Bell, User } from 'lucide-react';
 
 const Admin = () => {
   const navigate = useNavigate();
   const [books, setBooks] = useState([]);
   const [requests, setRequests] = useState([]);
-  const [feedbacks, setFeedbacks] = useState([]); // Naya state feedback ke liye
+  const [feedbacks, setFeedbacks] = useState([]);
   const [isEditing, setIsEditing] = useState(null); 
   const [book, setBook] = useState({ title: '', description: '', price: '', language: 'Urdu', image: '', reviews: '' });
 
@@ -195,8 +195,8 @@ const Admin = () => {
 
   useEffect(() => {
     const userEmail = localStorage.getItem('userEmail');
-    // Note: Aapne email check mein backtick (`) lagaya tha, maine correct kar diya hai
-    if (userEmail !== "admin`@critixo.com") {
+    // Admin Email Verification
+    if (userEmail !== "admin@critixo.com") {
       alert("Access Denied!");
       navigate('/');
     }
@@ -205,21 +205,25 @@ const Admin = () => {
 
   const fetchData = async () => {
     try {
+      // Books fetch
       const bRes = await axios.get(`${API_BASE_URL}/all`);
+      setBooks(bRes.data);
+
+      // Requests fetch
       const rRes = await axios.get(`${API_BASE_URL}/requests`);
+      setRequests(rRes.data);
       
-      // TABDEELI: Feedback fetch karne ke liye endpoint
-      // Ensure karein ke aapka backend /feedback support karta ho
+      // Feedback fetch (New Logic)
       try {
         const fRes = await axios.get(`${API_BASE_URL}/feedback`);
         setFeedbacks(fRes.data);
       } catch (fErr) {
-        console.log("Feedback fetch failed (Endpoint might be missing)");
+        console.log("Feedback fetch failed: Backend route may not be active yet.");
       }
 
-      setBooks(bRes.data);
-      setRequests(rRes.data);
-    } catch (err) { console.log(err); }
+    } catch (err) { 
+      console.error("Data fetch error:", err); 
+    }
   };
 
   const handleSubmit = async (e) => {
@@ -253,19 +257,20 @@ const Admin = () => {
     }
   };
 
-  // TABDEELI: Feedback delete karne ka function
   const deleteFeedback = async (id) => {
     if (window.confirm("Delete this feedback?")) {
       try {
         await axios.delete(`${API_BASE_URL}/feedback/${id}`);
-        fetchData();
-      } catch (err) { alert("Could not delete feedback"); }
+        fetchData(); // Refresh list after delete
+      } catch (err) { 
+        alert("Could not delete feedback"); 
+      }
     }
   };
 
   return (
     <div style={{ padding: '120px 5% 50px 5%', background: '#F8F9FA', minHeight: '100vh', color: '#333' }}>
-      <h2 style={{ textAlign: 'center', marginBottom: '40px', fontWeight: '800', color: '#1A73E8' }}>
+      <h2 style={{ textAlign: 'center', marginBottom: '40px', fontWeight: '800', color: '#1A73E8', letterSpacing: '1px' }}>
         CRITIXO ADMIN DASHBOARD
       </h2>
       
@@ -281,7 +286,7 @@ const Admin = () => {
             <input type="number" placeholder="Price (PKR)" value={book.price} onChange={(e) => setBook({...book, price: e.target.value})} required style={styles.input} />
             <input type="text" placeholder="Image URL" value={book.image} onChange={(e) => setBook({...book, image: e.target.value})} required style={styles.input} />
             <button type="submit" style={styles.btn}>{isEditing ? "Update Book" : "Upload Book"}</button>
-            {isEditing && <button onClick={() => {setIsEditing(null); setBook({title:'',description:'',price:'',language:'Urdu',image:'',reviews:''})}} style={{...styles.btn, background: '#666'}}>Cancel</button>}
+            {isEditing && <button onClick={() => {setIsEditing(null); setBook({title:'',description:'',price:'',language:'Urdu',image:'',reviews:''})}} style={{...styles.btn, background: '#666', marginTop: '-5px'}}>Cancel</button>}
           </form>
         </section>
 
@@ -303,19 +308,23 @@ const Admin = () => {
             </div>
           </section>
 
-          {/* NEW: FEEDBACK SECTION */}
+          {/* FEEDBACK SECTION */}
           <section style={styles.sectionCard}>
             <h3 style={{ color: '#E91E63', marginBottom: '15px', display: 'flex', alignItems: 'center', gap: '10px' }}>
-              <MessageSquare size={20} /> User Feedback
+              <MessageSquare size={20} /> User Feedback ({feedbacks.length})
             </h3>
-            <div style={{ maxHeight: '250px', overflowY: 'auto' }}>
+            <div style={{ maxHeight: '300px', overflowY: 'auto' }}>
               {feedbacks.length > 0 ? feedbacks.map(f => (
                 <div key={f._id} style={styles.feedbackItem}>
                   <div style={{flex: 1}}>
-                    <p style={{fontSize: '14px', margin: 0, fontWeight: '500'}}>"{f.message || f.text || f.feedback}"</p>
-                    <span style={{fontSize: '10px', color: '#999'}}>{new Date(f.createdAt).toLocaleDateString()}</span>
+                    <div style={{display: 'flex', alignItems: 'center', gap: '5px', marginBottom: '4px'}}>
+                       <User size={12} color="#E91E63" />
+                       <span style={{fontSize: '11px', fontWeight: 'bold', color: '#555'}}>{f.userName || "Guest"}</span>
+                    </div>
+                    <p style={{fontSize: '13px', margin: 0, color: '#333', fontStyle: 'italic'}}>"{f.message}"</p>
+                    <span style={{fontSize: '9px', color: '#999'}}>{new Date(f.createdAt).toLocaleString()}</span>
                   </div>
-                  <Trash2 size={16} color="#ff4d4d" style={{cursor:'pointer'}} onClick={() => deleteFeedback(f._id)} />
+                  <Trash2 size={16} color="#ff4d4d" style={{cursor:'pointer', marginLeft: '10px'}} onClick={() => deleteFeedback(f._id)} />
                 </div>
               )) : <p style={{fontSize: '13px', color: '#999'}}>No feedback received yet.</p>}
             </div>
@@ -395,9 +404,9 @@ const styles = {
   },
   feedbackItem: {
     display: 'flex',
-    alignItems: 'center',
+    alignItems: 'start',
     gap: '10px',
-    padding: '12px',
+    padding: '15px',
     borderBottom: '1px solid #F1F4F9',
     background: '#FFF9FB'
   },
