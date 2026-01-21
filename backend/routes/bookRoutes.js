@@ -64,7 +64,7 @@ const express = require('express');
 const router = express.Router();
 const Book = require('../models/Book');
 const Request = require('../models/Request');
-const Feedback = require('../models/Feedback'); // <--- Feedback model ko yahan import kiya
+const Feedback = require('../models/Feedback'); // Feedback model import confirmed
 
 // ==========================================
 // 1. BOOK ROUTES
@@ -147,7 +147,6 @@ router.post('/feedback', async (req, res) => {
     try {
         const newFeedback = new Feedback({
             message: req.body.message,
-            // Agar user logged in hai to aap email/name bhi bhej sakte hain
             userEmail: req.body.userEmail || "Anonymous", 
             userName: req.body.userName || "Guest",
             rating: req.body.rating || 5
