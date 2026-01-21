@@ -210,10 +210,20 @@ const Footer = () => {
     if (feedback.trim() === "") return;
 
     try {
-      // Backend URL jo aapne Admin mein use kiya hai
+      // Backend URL
       const API_BASE_URL = "https://critixo-mik3.vercel.app/api/books";
       
-      await axios.post(`${API_BASE_URL}/feedback`, { message: feedback });
+      // LocalStorage se user details uthayein (agar login ho to)
+      const userEmail = localStorage.getItem('userEmail') || "Guest@critixo.com";
+      const userName = localStorage.getItem('userName') || "Guest User";
+
+      // POST Request mein message ke saath details bhej rahe hain
+      await axios.post(`${API_BASE_URL}/feedback`, { 
+        message: feedback,
+        userEmail: userEmail,
+        userName: userName,
+        rating: 5 // Default rating
+      });
       
       alert("Thank you! Your feedback has been received.");
       setFeedback("");
@@ -281,7 +291,6 @@ const Footer = () => {
   );
 };
 
-// Styles (Aapke original styles use kiye hain)
 const styles = {
   footer: { background: '#FFFFFF', padding: '60px 8% 30px 8%', borderTop: '1px solid #e1e4e8', marginTop: '60px', color: '#333', fontFamily: 'Segoe UI, sans-serif' },
   content: { display: 'flex', justifyContent: 'space-between', flexWrap: 'wrap', gap: '30px' },
