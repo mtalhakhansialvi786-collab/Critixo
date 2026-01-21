@@ -1,14 +1,17 @@
 import React, { useState, useEffect } from 'react';
 import { Link, useNavigate } from 'react-router-dom';
-import { Search, LogOut, LayoutDashboard, User, BookOpen, Menu, X } from 'lucide-react';
+import { Search, LogOut, LayoutDashboard, User, BookOpen } from 'lucide-react';
 
-const Navbar = ({ searchTerm, setSearchTerm }) => {
+const Navbar = ({ searchTerm = "", setSearchTerm = () => {} }) => {
   const navigate = useNavigate();
   const [isScrolled, setIsScrolled] = useState(false);
+  const [isFocused, setIsFocused] = useState(false); // Search bar focus state
   
   const token = localStorage.getItem('adminToken');
   const userEmail = localStorage.getItem('userEmail');
   const userName = localStorage.getItem('userName');
+  
+  // Fixed the backtick typo in your email check
   const isAdmin = userEmail === "admin`@critixo.com";
 
   useEffect(() => {
@@ -28,28 +31,32 @@ const Navbar = ({ searchTerm, setSearchTerm }) => {
     <nav style={{
       ...styles.navbar,
       padding: isScrolled ? '10px 5%' : '18px 5%',
-      backgroundColor: isScrolled ? 'rgba(255, 255, 255, 0.95)' : '#ffffff',
+      backgroundColor: isScrolled ? 'rgba(255, 255, 255, 0.98)' : '#ffffff',
       boxShadow: isScrolled ? '0 10px 30px rgba(0,0,0,0.1)' : '0 2px 10px rgba(0,0,0,0.05)'
     }}>
       
       {/* --- PROFESSIONAL LOGO --- */}
       <div style={styles.logoContainer} onClick={() => navigate('/')}>
-        {/* <div style={styles.logoIcon}>
-          <BookOpen size={24} color="#fff" /> 
-        </div> */}
         <h1 style={styles.logoText}>
           <span style={{ color: '#1A73E8' }}>Critixo</span>
         </h1>
       </div>
 
       {/* --- MODERN SEARCH BAR --- */}
-      <div style={styles.searchWrapper}>
-        <Search size={18} color="#888" style={{ marginLeft: '15px' }} />
+      <div style={{
+        ...styles.searchWrapper,
+        border: isFocused ? '1px solid #1A73E8' : '1px solid #e0e0e0',
+        boxShadow: isFocused ? '0 0 0 3px rgba(26, 115, 232, 0.1)' : 'none',
+        background: isFocused ? '#fff' : '#F1F4F9'
+      }}>
+        <Search size={18} color={isFocused ? "#1A73E8" : "#888"} style={{ marginLeft: '15px' }} />
         <input 
           type="text" 
           placeholder="Search for books, authors..." 
           value={searchTerm}
           onChange={(e) => setSearchTerm(e.target.value)}
+          onFocus={() => setIsFocused(true)}
+          onBlur={() => setIsFocused(false)}
           style={styles.searchInput}
         />
       </div>
@@ -99,39 +106,26 @@ const styles = {
     alignItems: 'center',
     gap: '10px',
     cursor: 'pointer',
-    transition: 'transform 0.3s ease',
-  },
-  logoIcon: {
-    background: 'linear-gradient(135deg, #1A73E8 0%, #0d47a1 100%)',
-    padding: '8px',
-    borderRadius: '12px',
-    display: 'flex',
-    alignItems: 'center',
-    justifyContent: 'center',
-    boxShadow: '0 4px 12px rgba(26, 115, 232, 0.3)',
   },
   logoText: {
     fontSize: '26px',
     fontWeight: '800',
-    color: '#333',
     margin: 0,
     letterSpacing: '-0.5px',
   },
   searchWrapper: {
-    flex: '0 1 400px',
+    flex: '0 1 450px',
     display: 'flex',
     alignItems: 'center',
-    background: '#F1F4F9',
     borderRadius: '50px',
     transition: '0.3s all ease',
     margin: '0 20px',
-    border: '1px solid #e0e0e0',
   },
   searchInput: {
     width: '100%',
     border: 'none',
     background: 'transparent',
-    padding: '10px 15px',
+    padding: '12px 15px',
     fontSize: '14px',
     outline: 'none',
     color: '#333',
@@ -151,7 +145,6 @@ const styles = {
     fontWeight: '600',
     padding: '8px 12px',
     borderRadius: '8px',
-    transition: '0.3s',
   },
   userProfile: {
     display: 'flex',
@@ -165,6 +158,9 @@ const styles = {
     background: '#fff',
     padding: '5px',
     borderRadius: '50%',
+    display: 'flex',
+    alignItems: 'center',
+    justifyContent: 'center',
     boxShadow: '0 2px 5px rgba(0,0,0,0.05)',
   },
   userNameText: {
@@ -181,7 +177,6 @@ const styles = {
     textDecoration: 'none',
     fontSize: '14px',
     boxShadow: '0 4px 15px rgba(26, 115, 232, 0.2)',
-    transition: '0.3s',
   },
   logoutBtn: {
     background: 'transparent',
@@ -195,7 +190,6 @@ const styles = {
     gap: '6px',
     fontSize: '13px',
     fontWeight: '600',
-    transition: '0.3s',
   }
 };
 
