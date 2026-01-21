@@ -196,7 +196,7 @@ const Admin = () => {
   useEffect(() => {
     const userEmail = localStorage.getItem('userEmail');
     // Admin Email Verification
-    if (userEmail !== "admin@critixo.com") {
+    if (userEmail !== "admin`@critixo.com") {
       alert("Access Denied!");
       navigate('/');
     }
