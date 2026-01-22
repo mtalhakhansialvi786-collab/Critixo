@@ -266,13 +266,15 @@ const Footer = () => {
           <h4 style={styles.heading}>Share Feedback</h4>
           <form onSubmit={handleFeedback} style={styles.feedbackForm}>
             <input 
-              type="text" 
-              placeholder="Your thoughts..." 
-              value={feedback}
-              onChange={(e) => setFeedback(e.target.value)}
-              style={styles.input}
-              required
-            />
+  type="text" 
+  id="feedback-input" // Yeh add kiya
+  name="feedback"      // Yeh add kiya
+  placeholder="Your thoughts..." 
+  value={feedback}
+  onChange={(e) => setFeedback(e.target.value)}
+  style={styles.input}
+  required
+/>
             <button type="submit" style={styles.sendBtn} title="Send Feedback">
               <Send size={16} />
             </button>
