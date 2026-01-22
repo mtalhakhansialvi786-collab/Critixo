@@ -245,11 +245,11 @@ const Footer = () => {
             Your favorite bookstore online, delivering knowledge across the nation.
           </p>
           <div style={styles.socials}>
-            <a href="https://www.facebook.com/profile.php?id=61574169407534" target="_blank" rel="noopener noreferrer" style={styles.iconLink}>
+            <a href="https://www.facebook.com/profile.php?id=61574169407534" target="_blank" rel="noopener noreferrer" aria-label='Visit our Facebook id'  style={styles.iconLink}>
               <Facebook style={styles.icon} size={20} />
             </a>
-            <a href="https://www.instagram.com/talha_sialvioffical/" target="_blank" style={styles.iconLink}><Instagram style={styles.icon} size={20} /></a>
-            <a href="https://x.com/talha_sialvi9" target="_blank" style={styles.iconLink}><Twitter style={styles.icon} size={20} /></a>
+            <a href="https://www.instagram.com/talha_sialvioffical/" target="_blank" aria-label='Visit our Instagram id' style={styles.iconLink}><Instagram style={styles.icon} size={20} /></a>
+            <a href="https://x.com/talha_sialvi9" target="_blank" aria-label='Visit our X id'  style={styles.iconLink}><Twitter style={styles.icon} size={20} /></a>
           </div>
         </div>
 
