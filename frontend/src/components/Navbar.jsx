@@ -50,7 +50,7 @@ const Navbar = ({ searchTerm = "", setSearchTerm = () => {} }) => {
         background: isFocused ? '#fff' : '#F1F4F9'
       }}>
         <Search size={18} color={isFocused ? "#1A73E8" : "#888"} style={{ marginLeft: '15px' }} />
-        <input 
+        {/* <input 
           type="text" 
           placeholder="Search for books, authors..." 
           value={searchTerm}
@@ -58,7 +58,18 @@ const Navbar = ({ searchTerm = "", setSearchTerm = () => {} }) => {
           onFocus={() => setIsFocused(true)}
           onBlur={() => setIsFocused(false)}
           style={styles.searchInput}
-        />
+        /> */}
+        <input 
+  type="text" 
+  id="search-input" // Yeh add kiya
+  name="search"     // Yeh add kiya
+  placeholder="Search for books, authors..." 
+  value={searchTerm}
+  onChange={(e) => setSearchTerm(e.target.value)}
+  onFocus={() => setIsFocused(true)}
+  onBlur={() => setIsFocused(false)}
+  style={styles.searchInput}
+/>
       </div>
 
       {/* --- ACTIONS SECTION --- */}
