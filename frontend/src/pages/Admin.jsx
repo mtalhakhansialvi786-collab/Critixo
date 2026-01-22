@@ -281,12 +281,14 @@ const Admin = () => {
             {isEditing ? <><Edit3 size={22} /> Edit Book</> : <><PlusCircle size={22} /> Add New Book</>}
           </h3>
           <form onSubmit={handleSubmit} style={styles.form}>
-            <input type="text" placeholder="Book Title" value={book.title} onChange={(e) => setBook({...book, title: e.target.value})} required style={styles.input} />
-            <textarea placeholder="Book Description" value={book.description} onChange={(e) => setBook({...book, description: e.target.value})} required style={styles.textarea} />
-            <input type="number" placeholder="Price (PKR)" value={book.price} onChange={(e) => setBook({...book, price: e.target.value})} required style={styles.input} />
-            <input type="text" placeholder="Image URL" value={book.image} onChange={(e) => setBook({...book, image: e.target.value})} required style={styles.input} />
+            {/* Added id and name for Accessibility */}
+            <input id="title" name="title" type="text" placeholder="Book Title" value={book.title} onChange={(e) => setBook({...book, title: e.target.value})} required style={styles.input} />
+            <textarea id="description" name="description" placeholder="Book Description" value={book.description} onChange={(e) => setBook({...book, description: e.target.value})} required style={styles.textarea} />
+            <input id="price" name="price" type="number" placeholder="Price (PKR)" value={book.price} onChange={(e) => setBook({...book, price: e.target.value})} required style={styles.input} />
+            <input id="image" name="image" type="text" placeholder="Image URL" value={book.image} onChange={(e) => setBook({...book, image: e.target.value})} required style={styles.input} />
+            
             <button type="submit" style={styles.btn}>{isEditing ? "Update Book" : "Upload Book"}</button>
-            {isEditing && <button onClick={() => {setIsEditing(null); setBook({title:'',description:'',price:'',language:'Urdu',image:'',reviews:''})}} style={{...styles.btn, background: '#666', marginTop: '-5px'}}>Cancel</button>}
+            {isEditing && <button type="button" onClick={() => {setIsEditing(null); setBook({title:'',description:'',price:'',language:'Urdu',image:'',reviews:''})}} style={{...styles.btn, background: '#666', marginTop: '-5px'}}>Cancel</button>}
           </form>
         </section>
 
@@ -340,7 +342,7 @@ const Admin = () => {
       <div style={styles.inventoryGrid}>
         {books.map(b => (
           <div key={b._id} style={styles.bookRow}>
-            <img src={b.image} alt="" style={styles.miniImg} />
+            <img src={b.image} alt={b.title} style={styles.miniImg} />
             <div style={{flex: 1, marginLeft: '15px'}}>
               <h4 style={{margin: 0, fontSize: '15px', fontWeight: '600'}}>{b.title}</h4>
               <p style={{color: '#1A73E8', margin: '5px 0', fontSize: '14px', fontWeight: '700'}}>Rs. {b.price}</p>
@@ -356,6 +358,7 @@ const Admin = () => {
   );
 };
 
+// Styles object remains exactly the same as yours
 const styles = {
   topGrid: { display: 'grid', gridTemplateColumns: 'minmax(400px, 1.2fr) 0.8fr', gap: '30px', alignItems: 'start' },
   sectionCard: { 
